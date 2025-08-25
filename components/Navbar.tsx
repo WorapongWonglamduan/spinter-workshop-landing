@@ -1,74 +1,68 @@
 "use client";
 
-import { useRouter } from "@/app/utils/navigation";
-
+import Link from "next/link";
 export default function Navbar() {
-  const router = useRouter();
-
-  const handleNavigation = (href: string) => {
-    router.push(href, 800);
-  };
   return (
-    <nav className="flex justify-between p-4 text-white bg-blue-600 shadow-md">
+    <nav className="flex justify-between p-4 text-white bg-blue-600 shadow-md ">
       <div className="flex items-center">
-        <button
-          onClick={() => handleNavigation("/")}
+        <Link
+          href="/"
           className="text-xl font-bold mr-8 cursor-pointer"
         >
           SPinter Workshop
-        </button>
+        </Link>
         <div className="flex gap-6">
-          <button
-            onClick={() => handleNavigation("/")}
+          <Link
+            href="/"
             className="hover:text-blue-200 transition-colors cursor-pointer"
           >
             Home
-          </button>
-          <button
-            onClick={() => handleNavigation("/our-team")}
+          </Link>
+          <Link
+            href="/our-team"
             className="hover:text-blue-200 transition-colors cursor-pointer"
           >
             Our Team
-          </button>
-          <button
-            onClick={() => handleNavigation("/services")}
+          </Link>
+          <Link
+            href="/services"
             className="hover:text-blue-200 transition-colors cursor-pointer"
           >
             Services
-          </button>
-          <button
-            onClick={() => handleNavigation("/track-record")}
+          </Link>
+          <Link
+            href="/track-record"
             className="hover:text-blue-200 transition-colors cursor-pointer"
           >
             Track Record
-          </button>
-          <button
-            onClick={() => handleNavigation("/vacancies")}
+          </Link>
+          <Link
+            href="/vacancies"
             className="hover:text-blue-200 transition-colors cursor-pointer"
           >
             Open Vacancies
-          </button>
-          <button
-            onClick={() => handleNavigation("/contact")}
+          </Link>
+          <Link
+            href="/contact"
             className="hover:text-blue-200 transition-colors cursor-pointer"
           >
             Contact
-          </button>
+          </Link>
         </div>
       </div>
       <div className="flex gap-4">
-        <button
-          onClick={() => handleNavigation("/login")}
+        <Link
+          href="/login"
           className="hover:text-blue-200 transition-colors cursor-pointer"
         >
           Login
-        </button>
-        <button
-          onClick={() => handleNavigation("/register")}
+        </Link>
+        <Link
+          href="/register"
           className="hover:text-blue-200 transition-colors cursor-pointer"
         >
           Register
-        </button>
+        </Link>
       </div>
     </nav>
   );
