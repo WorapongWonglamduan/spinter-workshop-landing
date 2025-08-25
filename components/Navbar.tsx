@@ -1,68 +1,77 @@
 "use client";
 
-import Link from "next/link";
+import DelayedLink from "./DelayedLink";
 export default function Navbar() {
   return (
     <nav className="flex justify-between p-4 text-white bg-blue-600 shadow-md ">
       <div className="flex items-center">
-        <Link
+        <DelayedLink
           href="/"
           className="text-xl font-bold mr-8 cursor-pointer"
+          delay={2000}
         >
           SPinter Workshop
-        </Link>
+        </DelayedLink>
         <div className="flex gap-6">
-          <Link
+          <DelayedLink
             href="/"
             className="hover:text-blue-200 transition-colors cursor-pointer"
+            delay={800}
           >
             Home
-          </Link>
-          <Link
+          </DelayedLink>
+          <DelayedLink
             href="/our-team"
             className="hover:text-blue-200 transition-colors cursor-pointer"
+            delay={800}
           >
             Our Team
-          </Link>
-          <Link
+          </DelayedLink>
+          <DelayedLink
             href="/services"
             className="hover:text-blue-200 transition-colors cursor-pointer"
+            delay={800}
           >
             Services
-          </Link>
-          <Link
+          </DelayedLink>
+          <DelayedLink
             href="/track-record"
             className="hover:text-blue-200 transition-colors cursor-pointer"
+            delay={800}
           >
             Track Record
-          </Link>
-          <Link
+          </DelayedLink>
+          <DelayedLink
             href="/vacancies"
             className="hover:text-blue-200 transition-colors cursor-pointer"
+            delay={800}
           >
             Open Vacancies
-          </Link>
-          <Link
+          </DelayedLink>
+          <DelayedLink
             href="/contact"
             className="hover:text-blue-200 transition-colors cursor-pointer"
+            delay={800}
           >
             Contact
-          </Link>
+          </DelayedLink>
         </div>
       </div>
       <div className="flex gap-4">
-        <Link
+        <DelayedLink
           href="/login"
           className="hover:text-blue-200 transition-colors cursor-pointer"
+          delay={800}
         >
           Login
-        </Link>
-        <Link
+        </DelayedLink>
+        <DelayedLink
           href="/register"
           className="hover:text-blue-200 transition-colors cursor-pointer"
+          delay={800}
         >
           Register
-        </Link>
+        </DelayedLink>
       </div>
     </nav>
   );
