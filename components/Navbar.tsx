@@ -3,7 +3,7 @@
 import DelayedLink from "./DelayedLink";
 export default function Navbar() {
   return (
-    <nav className="flex justify-between p-4 text-white bg-blue-600 shadow-md ">
+    <nav className="flex justify-between p-4 text-white bg-blue-600 shadow-md sticky top-0 z-2">
       <div className="flex items-center">
         <DelayedLink
           href="/"
