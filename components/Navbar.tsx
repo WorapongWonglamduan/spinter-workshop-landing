@@ -43,8 +43,8 @@ export default function Navbar() {
               <span className="text-blue-600 font-bold text-sm">SP</span>
             </div>
             <div>
-              <span className="font-extrabold">SPinter</span>
-              <span className="font-medium">Workshop</span>
+              <span className="font-extrabold">SP INTER SERVICE & SUPPLY</span>
+              {/* <span className="font-medium">Workshop</span> */}
             </div>
           </DelayedLink>
 

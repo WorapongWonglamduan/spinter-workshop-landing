@@ -11,7 +11,7 @@ export default function OurTeamPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Our Team</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Meet the experienced professionals behind SPinter Workshop. Our
+          Meet the experienced professionals behind SP INTER SERVICE & SUPPLY Workshop. Our
           leadership team brings decades of combined expertise in offshore
           operations, crew management, and specialized services.
         </p>
