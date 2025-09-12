@@ -10,6 +10,7 @@ interface DelayedLinkProps {
   children: ReactNode;
   className?: string;
   showLoading?: boolean;
+  callback?: () => void;
 }
 
 export default function DelayedLink({
@@ -17,12 +18,13 @@ export default function DelayedLink({
   delay = 500,
   className = "",
   children,
+  callback,
 }: DelayedLinkProps) {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-
+    callback?.();
     setTimeout(() => {
       router.push(href);
     }, delay);

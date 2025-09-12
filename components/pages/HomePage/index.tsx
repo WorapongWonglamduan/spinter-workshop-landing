@@ -266,7 +266,7 @@ export default function HomePage() {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-900 rounded-full opacity-10 transform -translate-x-1/3 translate-y-1/3"></div>
         </div>
         <div
-          className={`text-center relative z-10 transition-all duration-1000 ${
+          className={`text-center relative  transition-all duration-1000 ${
             isVisible.cta
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"

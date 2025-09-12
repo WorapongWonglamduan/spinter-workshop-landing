@@ -53,6 +53,9 @@ export default function Navbar() {
               href="/"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Home
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
@@ -61,6 +64,9 @@ export default function Navbar() {
               href="/our-team"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Our Team
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
@@ -69,6 +75,9 @@ export default function Navbar() {
               href="/services"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Services
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
@@ -77,6 +86,9 @@ export default function Navbar() {
               href="/track-record"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Track Record
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
@@ -85,6 +97,9 @@ export default function Navbar() {
               href="/vacancies"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Open Vacancies
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
@@ -93,6 +108,9 @@ export default function Navbar() {
               href="/contact"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Contact
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
@@ -101,7 +119,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center">
-          <div className="hidden md:flex gap-4">
+          {/* <div className="hidden md:flex gap-4">
             <DelayedLink
               href="/login"
               className="bg-white text-blue-600 hover:bg-blue-100 px-5 py-2 rounded-full transition-colors cursor-pointer font-medium"
@@ -116,7 +134,7 @@ export default function Navbar() {
             >
               Register
             </DelayedLink>
-          </div>
+          </div> */}
 
           <div className="md:hidden">
             <button
@@ -158,6 +176,9 @@ export default function Navbar() {
               href="/"
               className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Home
             </DelayedLink>
@@ -165,6 +186,9 @@ export default function Navbar() {
               href="/our-team"
               className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Our Team
             </DelayedLink>
@@ -172,6 +196,9 @@ export default function Navbar() {
               href="/services"
               className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Services
             </DelayedLink>
@@ -179,6 +206,9 @@ export default function Navbar() {
               href="/track-record"
               className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Track Record
             </DelayedLink>
@@ -186,6 +216,9 @@ export default function Navbar() {
               href="/vacancies"
               className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Open Vacancies
             </DelayedLink>
@@ -193,10 +226,13 @@ export default function Navbar() {
               href="/contact"
               className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
               delay={800}
+              callback={() => {
+                setMobileMenuOpen(false);
+              }}
             >
               Contact
             </DelayedLink>
-            <div className="flex gap-4 mt-4">
+            {/* <div className="flex gap-4 mt-4">
               <DelayedLink
                 href="/login"
                 className="bg-white text-blue-600 hover:bg-blue-100 px-5 py-2 rounded-full transition-colors cursor-pointer font-medium flex-1 text-center"
@@ -211,7 +247,7 @@ export default function Navbar() {
               >
                 Register
               </DelayedLink>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
