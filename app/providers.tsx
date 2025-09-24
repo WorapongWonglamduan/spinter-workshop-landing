@@ -10,14 +10,14 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <>
       <NextTopLoader
-        color="#1e40af"
+        color="#2563eb"
         height={6}
         showSpinner={false}
-        // shadow="0 0 20px #1e40af, 0 0 10px #1e40af"
+        shadow="0 0 10px #2563eb, 0 0 5px #2563eb"
         easing="linear"
         speed={100}
         showAtBottom={false}
-        zIndex={50}
+        zIndex={9999}
       />
       <Navbar />
       {children}
