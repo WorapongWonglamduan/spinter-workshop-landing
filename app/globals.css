@@ -3,13 +3,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* SP Inter Workshop Theme Colors */
+  --primary: #213559; /* navy blue - สีน้ำเงินเข้มหลัก */
+  --primary-light: #263f6b; /* lighter navy blue - สีน้ำเงินเข้มรอง */
+  --primary-dark: #182a45; /* darker navy blue - สีน้ำเงินเข้มกว่า */
+  --primary-lighter: #3a5b8c; /* lighter blue - สีน้ำเงินอ่อนกว่า */
+  --accent: #dc2626; /* red - เทียบเท่ากับ red-600 */
+  --accent-dark: #991b1b; /* darker red - เทียบเท่ากับ red-700 */
+  --text-light: #f8fafc; /* light text - เทียบเท่ากับ slate-50 */
+  --text-dark: #1e293b; /* dark text - เทียบเท่ากับ slate-800 */
 }
 
-@theme inline {
+/* Theme Variables */
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {

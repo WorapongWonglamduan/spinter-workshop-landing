@@ -10,10 +10,10 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <>
       <NextTopLoader
-        color="#2563eb"
+        color="#213559"
         height={6}
         showSpinner={false}
-        shadow="0 0 10px #2563eb, 0 0 5px #2563eb"
+        shadow="0 0 10px #263f6b, 0 0 5px #213559"
         easing="linear"
         speed={100}
         showAtBottom={false}

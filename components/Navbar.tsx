@@ -2,10 +2,13 @@
 
 import DelayedLink from "./DelayedLink";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +33,7 @@ export default function Navbar() {
     <>
       <nav
         className={`flex justify-between items-center px-6 text-white sticky top-0 z-10 transition-all duration-300 ${
-          scrolled ? "bg-blue-800 shadow-lg py-3" : "bg-blue-800 py-5"
+          scrolled ? "bg-[#213559] shadow-lg py-3" : "bg-[#263f6b] py-5"
         }`}
       >
         <div className="flex items-center">
@@ -40,7 +43,7 @@ export default function Navbar() {
             delay={800}
           >
             <div className="relative w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
-              <span className="text-blue-600 font-bold text-sm">SP</span>
+              <span className="text-[#213559] font-bold text-sm">SP</span>
             </div>
             <div>
               <span className="font-extrabold">SP INTER SERVICE & SUPPLY</span>
@@ -50,7 +53,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex gap-8">
             <DelayedLink
-              href="/"
+              href={isHomePage ? "#home" : "/"}
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
               callback={() => {
@@ -61,7 +64,7 @@ export default function Navbar() {
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
             <DelayedLink
-              href="/our-team"
+              href={isHomePage ? "#team" : "/our-team"}
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
               callback={() => {
@@ -72,7 +75,7 @@ export default function Navbar() {
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
             <DelayedLink
-              href="/services"
+              href={isHomePage ? "#services" : "/services"}
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
               callback={() => {
@@ -105,7 +108,7 @@ export default function Navbar() {
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
             <DelayedLink
-              href="/contact"
+              href={isHomePage ? "#contact" : "/contact"}
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
               callback={() => {
@@ -167,14 +170,14 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div
-          className={`md:hidden bg-blue-700 text-white py-4 px-6 shadow-lg sticky transition-all duration-300 ${
+          className={`md:hidden bg-[#182a45] text-white py-4 px-6 shadow-lg sticky transition-all duration-300 ${
             scrolled ? "tra top-16" : "top-20"
           } z-2`}
         >
           <div className="flex flex-col gap-4">
             <DelayedLink
-              href="/"
-              className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
+              href={isHomePage ? "#home" : "/"}
+              className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
               callback={() => {
                 setMobileMenuOpen(false);
@@ -183,8 +186,8 @@ export default function Navbar() {
               Home
             </DelayedLink>
             <DelayedLink
-              href="/our-team"
-              className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
+              href={isHomePage ? "#team" : "/our-team"}
+              className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
               callback={() => {
                 setMobileMenuOpen(false);
@@ -193,8 +196,8 @@ export default function Navbar() {
               Our Team
             </DelayedLink>
             <DelayedLink
-              href="/services"
-              className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
+              href={isHomePage ? "#services" : "/services"}
+              className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
               callback={() => {
                 setMobileMenuOpen(false);
@@ -204,7 +207,7 @@ export default function Navbar() {
             </DelayedLink>
             <DelayedLink
               href="/track-record"
-              className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
+              className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
               callback={() => {
                 setMobileMenuOpen(false);
@@ -214,7 +217,7 @@ export default function Navbar() {
             </DelayedLink>
             <DelayedLink
               href="/vacancies"
-              className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
+              className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
               callback={() => {
                 setMobileMenuOpen(false);
@@ -223,8 +226,8 @@ export default function Navbar() {
               Open Vacancies
             </DelayedLink>
             <DelayedLink
-              href="/contact"
-              className="hover:bg-blue-600 py-2 px-3 rounded-md transition-colors"
+              href={isHomePage ? "#contact" : "/contact"}
+              className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
               callback={() => {
                 setMobileMenuOpen(false);
