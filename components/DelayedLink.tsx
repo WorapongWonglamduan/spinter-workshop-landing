@@ -37,7 +37,17 @@ export default function DelayedLink({
       if (section) {
         if (showLoading) setIsLoading(true);
         setTimeout(() => {
-          section.scrollIntoView({ behavior: 'smooth' });
+          // คำนวณ offset สำหรับ navbar (ประมาณ 80px)
+          const navbarOffset = 80;
+          const elementPosition = section.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navbarOffset;
+          
+          // เลื่อนไปยังตำแหน่งที่คำนวณแล้ว
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
           if (showLoading) setIsLoading(false);
         }, delay);
         return;

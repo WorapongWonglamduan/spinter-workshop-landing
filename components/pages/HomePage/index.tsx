@@ -5,7 +5,7 @@ import Image from "next/image";
 import DelayedLink from "../../DelayedLink";
 import teamHelper from "../OurTeamPage/helper";
 import contactHelper from "../ContactPage/helper";
-import servicesHelper from "../ServicesPage/helper";
+import Slider from "react-slick";
 
 export default function HomePage() {
   const { useContactForm } = contactHelper();
@@ -51,7 +51,7 @@ export default function HomePage() {
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#263f6b] rounded-tl-3xl"></div>
                 <Image
-                  src="/images/SP-COMPANY-PROFILE-2025-05.png"
+                  src="/images/SP COMPANY PROFILE 2025-02.png"
                   alt="SP Inter Service & Supply Workshop"
                   width={600}
                   height={400}
@@ -138,131 +138,412 @@ export default function HomePage() {
               COMPANY SERVICES
             </h2>
             <div className="w-24 h-1 bg-[#263f6b] mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive crew supply and support services for
-              offshore operations in the wind farm, oil & gas, and deep-sea
-              shipping industries.
-            </p>
           </div>
 
-          {/* Main Services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-64 bg-[url('/images/SP-COMPANY-PROFILE-2025-07.png')] bg-cover bg-center"></div>
+          {/* SP Welding Workshop */}
+          <div className="mb-20 relative">
+            {/* Background with pattern */}
+            <div className="absolute inset-0 bg-gray-100 overflow-hidden">
+              {/* Pattern dots */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="grid grid-cols-10 gap-4 p-4">
+                  {Array(100)
+                    .fill(0)
+                    .map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-2 h-2 rounded-full bg-[#213559]"
+                      ></div>
+                    ))}
+                </div>
+              </div>
+
+              {/* Animated welding sparks */}
+              <div className="hidden md:block absolute top-10 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+              <div className="hidden md:block absolute top-20 left-20 w-1 h-1 bg-yellow-400 rounded-full animate-pulse"></div>
+              <div className="hidden md:block absolute top-30 left-30 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+              <div className="hidden md:block absolute top-40 right-40 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+              <div className="hidden md:block absolute bottom-20 right-20 w-1 h-1 bg-yellow-400 rounded-full animate-ping"></div>
+            </div>
+
+            <div className="relative bg-white rounded-lg shadow-xl overflow-hidden">
               <div className="p-6 bg-[#213559] text-white">
-                <h3 className="text-xl font-bold mb-4">WELDER SUPPLY</h3>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Welder Superintendent</li>
-                  <li>Welder Foreman</li>
-                  <li>Welders</li>
-                  <li>Fitter/Spacer</li>
-                  <li>Auto Welder and Structure</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-64 bg-[url('/images/SP-COMPANY-PROFILE-2025-08.png')] bg-cover bg-center"></div>
-              <div className="p-6 bg-[#263f6b] text-white">
-                <h3 className="text-xl font-bold mb-4">
-                  TECHNICAL CAPABILITIES
-                </h3>
-                <p className="mb-4">Manpower 120 persons+</p>
-                <p>
-                  Our team consists of highly skilled professionals with
-                  extensive experience in welding and fabrication for offshore
-                  and industrial projects.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Services */}
-          <div className="space-y-8 mb-12">
-            {servicesHelper()
-              .services.slice(0, 2)
-              .map((service) => (
-                <div
-                  key={service.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-                >
-                  <div className="p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="md:col-span-1 flex flex-col items-center md:items-start">
-                      <div className="mb-6">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-12 w-12 text-[#213559]"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d={service.iconPath}
-                          />
-                        </svg>
-                      </div>
-                      <h3 className="text-2xl font-bold mb-4 text-center md:text-left text-[#213559]">
-                        {service.title}
-                      </h3>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex flex-col items-center justify-center w-16 h-16 animate-pulse">
+                      <div className="text-2xl font-bold">SP</div>
+                      <div className="w-12 h-0.5 bg-white"></div>
                     </div>
-                    <div className="md:col-span-2">
-                      <p className="text-gray-600 mb-6">
-                        {service.description}
+                    <h3 className="text-3xl font-bold">WELDING WORKSHOP</h3>
+                  </div>
+                  <div className="hidden md:flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-8">
+                <div className="mb-8">
+                  <h4 className="text-xl font-bold mb-4 text-[#213559]">
+                    Provide Workshop for rental
+                  </h4>
+                  <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                    <li>Welding Machine</li>
+                    <li>Consumables</li>
+                    <li>etc.</li>
+                  </ul>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="bg-[#f0f4f8] rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-lg">
+                    <div className="h-48 bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                      {/* รูปภาพจะถูกเพิ่มภายหลัง */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-gray-300"></div>
+                      <p className="text-gray-500 relative z-10">BAY</p>
+                    </div>
+                    <div className="p-3 bg-[#213559] text-white text-center font-medium">
+                      BAY
+                    </div>
+                  </div>
+
+                  <div className="bg-[#f0f4f8] rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-lg">
+                    <div className="h-48 bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                      {/* รูปภาพจะถูกเพิ่มภายหลัง */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-gray-300"></div>
+                      <p className="text-gray-500 relative z-10">OVERVIEW</p>
+                    </div>
+                    <div className="p-3 bg-[#213559] text-white text-center font-medium">
+                      OVERVIEW
+                    </div>
+                  </div>
+
+                  <div className="bg-[#f0f4f8] rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-lg">
+                    <div className="h-48 bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                      {/* รูปภาพจะถูกเพิ่มภายหลัง */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-gray-300"></div>
+                      <p className="text-gray-500 relative z-10">STORAGE</p>
+                    </div>
+                    <div className="p-3 bg-[#213559] text-white text-center font-medium">
+                      STORAGE
+                    </div>
+                  </div>
+
+                  <div className="bg-[#f0f4f8] rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-lg">
+                    <div className="h-48 bg-gray-200 flex items-center justify-center relative overflow-hidden">
+                      {/* รูปภาพจะถูกเพิ่มภายหลัง */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-gray-300"></div>
+                      <p className="text-gray-500 relative z-10">
+                        MEETING ROOM
                       </p>
-                      <h4 className="font-semibold mb-3 text-[#263f6b]">
-                        Key Features:
-                      </h4>
-                      <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                        {service.features.slice(0, 3).map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                      </ul>
+                    </div>
+                    <div className="p-3 bg-[#213559] text-white text-center font-medium">
+                      MEETING ROOM
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
           </div>
 
-          {/* Industries We Serve */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-8 text-center text-[#213559]">
-              Industries We Serve
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {servicesHelper().industries.map((industry) => (
-                <div
-                  key={industry.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform"
-                >
-                  <div className="h-40 bg-[#f0f4f8] flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-[#213559] flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                    </div>
+          {/* Our Clients */}
+          <div className="mb-12 relative">
+            {/* Background with diagonal design */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+              {/* Top-left triangle */}
+              <div className="absolute top-0 left-0 w-40 h-40 bg-[#213559] transform -translate-x-1/2 -translate-y-1/2 rotate-45"></div>
+
+              {/* Bottom-right triangle */}
+              <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#213559] transform translate-x-1/2 translate-y-1/2 rotate-45"></div>
+
+              {/* Animated dots */}
+              <div className="hidden md:block absolute top-1/4 right-10 w-3 h-3 rounded-full bg-[#213559] animate-pulse"></div>
+              <div className="hidden md:block absolute top-1/3 left-10 w-2 h-2 rounded-full bg-[#213559] animate-ping"></div>
+              <div className="hidden md:block absolute bottom-1/4 right-1/4 w-4 h-4 rounded-full bg-[#213559] animate-pulse"></div>
+              <div className="hidden md:block absolute bottom-1/3 left-1/4 w-3 h-3 rounded-full bg-[#213559] animate-ping"></div>
+            </div>
+
+            <div className="relative rounded-lg overflow-hidden">
+              <div className="p-6 bg-[#213559] text-white">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <h3 className="text-3xl font-bold">OUR CLIENT</h3>
                   </div>
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold mb-2 text-[#213559]">
-                      {industry.name}
-                    </h4>
-                    <p className="text-gray-600">{industry.description}</p>
+                  <div className="hidden md:flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                    <div className="w-3 h-3 rounded-full bg-white"></div>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="p-8 overflow-hidden client-section">
+                {/* Client Carousel using React Slick */}
+                <Slider
+                  dots={false}
+                  infinite={true}
+                  speed={4000}
+                  slidesToShow={3}
+                  slidesToScroll={1}
+                  autoplay={true}
+                  autoplaySpeed={4000}
+                  cssEase={"linear"}
+                  pauseOnHover={false}
+                  centerMode={true}
+                  arrows={false}
+                  swipe={false}
+                  waitForAnimate={false}
+                  responsive={[
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                      },
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                      },
+                    },
+                  ]}
+                  className="mb-16"
+                >
+                  {/* Client 1 - L&T */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">L&T</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>Larsen & Toubro Limited</h4>
+                        <p>
+                          A leading multinational conglomerate with businesses in engineering, construction, technology and financial services.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 2 - ARAMCO */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">ARAMCO</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>SAUDI ARAMCO</h4>
+                        <p>
+                          Largest integrated energy and chemical companies, creating value across the hydrocarbon chain, and delivering societal benefits.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 3 - MM */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">MM</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>MERMAID MARITIME</h4>
+                        <p>
+                          A leading international subsea and offshore drilling services company with headquarters in Thailand.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 4 - SK */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">SK</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>SAPURA KENCANA</h4>
+                        <p>
+                          The Group&apos;s spectrum of capabilities covers exploration through to production.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 5 - SE */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">SE</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>Sapura Energy</h4>
+                        <p>
+                          It&apos;s a global integrated energy services provider operating across the entire upstream value chain, including renewables.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 6 - CT */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">CT</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>Chevron Thailand</h4>
+                        <p>
+                          Chevron is a global energy company operating in Thailand since 1948.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+               
+                </Slider>
+
+                {/* Second Carousel - Different Direction */}
+                <Slider
+                  dots={false}
+                  infinite={true}
+                  speed={4000}
+                  slidesToShow={3}
+                  slidesToScroll={1}
+                  autoplay={true}
+                  autoplaySpeed={4000}
+                  cssEase={"linear"}
+                  rtl={true} // Right to left for opposite direction
+                  pauseOnHover={false}
+                  centerMode={true}
+                  arrows={false}
+                  swipe={false}
+                  waitForAnimate={false}
+              
+                  responsive={[
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                      },
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                      },
+                    },
+                  ]}
+                >
+                  {/* Client 1 - L&T */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">L&T</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>Larsen & Toubro Limited</h4>
+                        <p>
+                          A leading multinational conglomerate with businesses in engineering, construction, technology and financial services.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 2 - ARAMCO */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">ARAMCO</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>SAUDI ARAMCO</h4>
+                        <p>
+                          Largest integrated energy and chemical companies, creating value across the hydrocarbon chain, and delivering societal benefits.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 3 - MM */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">MM</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>MERMAID MARITIME</h4>
+                        <p>
+                          A leading international subsea and offshore drilling services company with headquarters in Thailand.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 4 - SK */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">SK</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>SAPURA KENCANA</h4>
+                        <p>
+                          The Group&apos;s spectrum of capabilities covers exploration through to production.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 5 - SE */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">SE</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>Sapura Energy</h4>
+                        <p>
+                          It&apos;s a global integrated energy services provider operating across the entire upstream value chain, including renewables.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Client 6 - CT */}
+                  <div className="client-logo-container">
+                    <div className="client-logo">
+                      <div className="client-logo-circle">
+                        {/* Logo placeholder - will be replaced with actual logo */}
+                        <span className="text-white font-bold text-xl">CT</span>
+                      </div>
+                      <div className="client-logo-text">
+                        <h4>Chevron Thailand</h4>
+                        <p>
+                          Chevron is a global energy company operating in Thailand since 1948.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Slider>
+              </div>
             </div>
           </div>
 

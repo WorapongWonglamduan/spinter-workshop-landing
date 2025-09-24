@@ -31,8 +31,9 @@ export default function Footer() {
     { name: "Home", href: "/" },
     { name: "Our Team", href: "/our-team" },
     { name: "Services", href: "/services" },
-    { name: "Track Record", href: "/track-record" },
-    { name: "Open Vacancies", href: "/vacancies" },
+    // ปิดไว้ก่อน
+    // { name: "Track Record", href: "/track-record" },
+    // { name: "Open Vacancies", href: "/vacancies" },
     { name: "Contact", href: "/contact" },
   ];
 

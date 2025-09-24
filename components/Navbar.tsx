@@ -85,7 +85,8 @@ export default function Navbar() {
               Services
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
-            <DelayedLink
+            {/* Track Record - ปิดไว้ก่อน */}
+            {/* <DelayedLink
               href="/track-record"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
@@ -95,8 +96,10 @@ export default function Navbar() {
             >
               Track Record
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink>
-            <DelayedLink
+            </DelayedLink> */}
+            
+            {/* Open Vacancies - ปิดไว้ก่อน */}
+            {/* <DelayedLink
               href="/vacancies"
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
               delay={800}
@@ -106,7 +109,7 @@ export default function Navbar() {
             >
               Open Vacancies
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink>
+            </DelayedLink> */}
             <DelayedLink
               href={isHomePage ? "#contact" : "/contact"}
               className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
@@ -205,7 +208,8 @@ export default function Navbar() {
             >
               Services
             </DelayedLink>
-            <DelayedLink
+            {/* Track Record - ปิดไว้ก่อน */}
+            {/* <DelayedLink
               href="/track-record"
               className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
@@ -214,8 +218,10 @@ export default function Navbar() {
               }}
             >
               Track Record
-            </DelayedLink>
-            <DelayedLink
+            </DelayedLink> */}
+            
+            {/* Open Vacancies - ปิดไว้ก่อน */}
+            {/* <DelayedLink
               href="/vacancies"
               className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
               delay={800}
@@ -224,7 +230,7 @@ export default function Navbar() {
               }}
             >
               Open Vacancies
-            </DelayedLink>
+            </DelayedLink> */}
             <DelayedLink
               href={isHomePage ? "#contact" : "/contact"}
               className="hover:bg-[#263f6b] py-2 px-3 rounded-md transition-colors"
