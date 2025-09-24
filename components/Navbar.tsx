@@ -30,7 +30,7 @@ export default function Navbar() {
     <>
       <nav
         className={`flex justify-between items-center px-6 text-white sticky top-0 z-10 transition-all duration-300 ${
-          scrolled ? "bg-blue-800 shadow-lg py-3" : "bg-blue-600 py-5"
+          scrolled ? "bg-blue-800 shadow-lg py-3" : "bg-blue-800 py-5"
         }`}
       >
         <div className="flex items-center">
