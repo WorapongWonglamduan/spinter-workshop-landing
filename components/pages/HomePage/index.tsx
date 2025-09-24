@@ -51,7 +51,7 @@ export default function HomePage() {
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#263f6b] rounded-tl-3xl"></div>
                 <Image
-                  src="/images/SP COMPANY PROFILE 2025-02.png"
+                  src="/images/SP-COMPANY-PROFILE-2025-02.png"
                   alt="SP Inter Service & Supply Workshop"
                   width={600}
                   height={400}
