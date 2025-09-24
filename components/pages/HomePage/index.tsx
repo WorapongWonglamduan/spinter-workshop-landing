@@ -27,11 +27,14 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section - Full Width Banner */}
-      <section ref={heroRef} className="relative w-full h-[91vh]">
-        {/* Hero Background Image */}
-        <div className="absolute inset-0 bg-blue-900">
-          <div className="absolute inset-0 bg-[url('/images/SP-COMPANY-PROFILE-2025-01.png')] bg-cover bg-[position:100%_center] md:bg-center"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/70 md:to-blue-900/50"></div>
+      <section
+        ref={heroRef}
+        className="relative w-full h-[20vh]  md:h-[40vh] lg:h-[50vh] xl:h-screen"
+      >
+        {/* Hero Background Image - ใช้ relative แทน absolute */}
+        <div className="w-full h-full relative">
+          <div className="w-full h-full bg-[url('/images/SP-COMPANY-PROFILE-2025-01.png')] bg-cover bg-center"></div>
+          <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-transparent via-transparent to-blue-900/30"></div>
         </div>
       </section>
     </div>
