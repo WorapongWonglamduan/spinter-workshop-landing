@@ -549,7 +549,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <DelayedLink
-              href="/services"
+              href="#services"
               className="bg-[#213559] hover:bg-[#263f6b] text-white font-bold py-3 px-8 rounded-md transition-all inline-block hover:shadow-lg"
               delay={800}
               showLoading={true}
@@ -605,7 +605,7 @@ export default function HomePage() {
 
           <div className="mt-12 text-center">
             <DelayedLink
-              href="/our-team"
+              href="#our-team"
               className="bg-[#213559] hover:bg-[#263f6b] text-white font-bold py-3 px-8 rounded-md transition-all inline-block hover:shadow-lg"
               delay={800}
               showLoading={true}
@@ -833,7 +833,7 @@ export default function HomePage() {
 
               <div className="mt-8">
                 <DelayedLink
-                  href="/contact"
+                  href="#contact"
                   className="bg-white text-[#213559] hover:bg-gray-100 font-bold py-3 px-8 rounded-md transition-colors inline-block w-full text-center"
                   delay={800}
                   showLoading={true}
