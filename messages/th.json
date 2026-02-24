@@ -5,7 +5,9 @@
     "services": "บริการ",
     "trackRecord": "ผลงาน",
     "vacancies": "ตำแหน่งงานว่าง",
-    "contact": "ติดต่อ"
+    "contact": "ติดต่อ",
+    "companyName": "เอสพี อินเตอร์ เซอร์วิส แอนด์ ซัพพลาย",
+    "companyNameFull": "บริษัท เอสพี อินเตอร์ เซอร์วิส แอนด์ ซัพพลาย จำกัด"
   },
   "home": {
     "companyProfile": {

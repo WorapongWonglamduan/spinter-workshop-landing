@@ -59,7 +59,7 @@ export default function Navbar() {
                 <span className="text-[#213559] font-bold text-base">SP</span>
               </div>
               <div className="hidden lg:block">
-                <span className="font-extrabold text-lg tracking-wide">SP INTER SERVICE & SUPPLY</span>
+                <span className="font-extrabold text-lg tracking-wide">{t('companyName')}</span>
               </div>
               <div className="lg:hidden">
                 <span className="font-extrabold text-base">SP INTER</span>

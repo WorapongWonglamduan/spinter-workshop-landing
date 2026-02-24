@@ -2,6 +2,7 @@
 
 import React from "react";
 import helper from "./helper";
+import DelayedLink from "../../DelayedLink";
 
 export default function OurTeamPage() {
   const { teamMembers } = helper();
@@ -44,12 +45,13 @@ export default function OurTeamPage() {
         <p className="mb-6 max-w-2xl mx-auto">
           {`We're always looking for talented professionals to join our growing team. Check out our current openings or send us your CV for future opportunities.`}
         </p>
-        <a
+        <DelayedLink
           href="/vacancies"
           className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors inline-block"
+          delay={800}
         >
           View Open Positions
-        </a>
+        </DelayedLink>
       </div>
     </div>
   );
