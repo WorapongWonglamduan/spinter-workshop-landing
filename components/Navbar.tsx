@@ -2,13 +2,17 @@
 
 import DelayedLink from "./DelayedLink";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations('nav');
+  const isHomePage = pathname === "/" || pathname === `/${locale}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +31,11 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const switchLanguage = (newLocale: string) => {
+    const currentPath = pathname.replace(`/${locale}`, '') || '/';
+    router.push(`/${newLocale}${currentPath}`);
   };
 
   return (
@@ -60,7 +69,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Home
+              {t('home')}
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
             <DelayedLink
@@ -71,7 +80,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Our Team
+              {t('ourTeam')}
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
             <DelayedLink
@@ -82,7 +91,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Services
+              {t('services')}
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
             {/* Track Record - ปิดไว้ก่อน */}
@@ -118,13 +127,35 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Contact
+              {t('contact')}
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </DelayedLink>
           </div>
         </div>
 
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => switchLanguage('th')}
+              className={`px-3 py-1 rounded-md transition-all font-medium ${
+                locale === 'th'
+                  ? 'bg-white text-[#213559]'
+                  : 'text-white hover:bg-white/20'
+              }`}
+            >
+              TH
+            </button>
+            <button
+              onClick={() => switchLanguage('en')}
+              className={`px-3 py-1 rounded-md transition-all font-medium ${
+                locale === 'en'
+                  ? 'bg-white text-[#213559]'
+                  : 'text-white hover:bg-white/20'
+              }`}
+            >
+              EN
+            </button>
+          </div>
           {/* <div className="hidden md:flex gap-4">
             <DelayedLink
               href="/login"
@@ -186,7 +217,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Home
+              {t('home')}
             </DelayedLink>
             <DelayedLink
               href={isHomePage ? "#team" : "/our-team"}
@@ -196,7 +227,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Our Team
+              {t('ourTeam')}
             </DelayedLink>
             <DelayedLink
               href={isHomePage ? "#services" : "/services"}
@@ -206,7 +237,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Services
+              {t('services')}
             </DelayedLink>
             {/* Track Record - ปิดไว้ก่อน */}
             {/* <DelayedLink
@@ -239,8 +270,30 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
               }}
             >
-              Contact
+              {t('contact')}
             </DelayedLink>
+            <div className="flex gap-2 mt-4 pt-4 border-t border-white/20">
+              <button
+                onClick={() => switchLanguage('th')}
+                className={`flex-1 px-3 py-2 rounded-md transition-all font-medium ${
+                  locale === 'th'
+                    ? 'bg-white text-[#213559]'
+                    : 'bg-white/20 text-white hover:bg-white/30'
+                }`}
+              >
+                ไทย
+              </button>
+              <button
+                onClick={() => switchLanguage('en')}
+                className={`flex-1 px-3 py-2 rounded-md transition-all font-medium ${
+                  locale === 'en'
+                    ? 'bg-white text-[#213559]'
+                    : 'bg-white/20 text-white hover:bg-white/30'
+                }`}
+              >
+                English
+              </button>
+            </div>
             {/* <div className="flex gap-4 mt-4">
               <DelayedLink
                 href="/login"

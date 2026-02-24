@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "home": "Home",
+    "ourTeam": "Our Team",
+    "services": "Services",
+    "trackRecord": "Track Record",
+    "vacancies": "Open Vacancies",
+    "contact": "Contact"
+  },
+  "home": {
+    "companyProfile": {
+      "title": "COMPANY PROFILE",
+      "companyName": "SP INTER SERVICE & SUPPLY Co.,Ltd",
+      "description1": "SP INTER SERVICE & SUPPLY Co.,Ltd was established in 2015 in Thailand to provide high-quality welding to customers worldwide. After successfully exporting welders to customers, our founder began to start a welding workshop rental service in 2020.",
+      "description2": "Moreover, we believe customer satisfaction is more important than large profits. With customer satisfaction comes repeat business, it makes our company have more customers and works which assist our company growth.",
+      "learnMore": "LEARN MORE"
+    },
+    "companyGoal": {
+      "title": "COMPANY GOAL",
+      "quote": "SAFETY IS AN INTEGRAL PART OF OUR COMPANY",
+      "description": "To provide our customers with skilled welders and welding workshop rental service that exceed our customers expectations while maintaining the safety of personal and plant equipment."
+    },
+    "services": {
+      "title": "COMPANY SERVICES",
+      "weldingWorkshop": {
+        "title": "WELDING WORKSHOP",
+        "subtitle": "Provide Workshop for rental",
+        "items": {
+          "weldingMachine": "Welding Machine",
+          "consumables": "Consumables",
+          "etc": "etc."
+        },
+        "facilities": {
+          "bay": "BAY",
+          "overview": "OVERVIEW",
+          "storage": "STORAGE",
+          "meetingRoom": "MEETING ROOM"
+        }
+      },
+      "ourClient": {
+        "title": "OUR CLIENT",
+        "clients": {
+          "lt": {
+            "name": "Larsen & Toubro Limited",
+            "description": "A leading multinational conglomerate with businesses in engineering, construction, technology and financial services."
+          },
+          "aramco": {
+            "name": "SAUDI ARAMCO",
+            "description": "Largest integrated energy and chemical companies, creating value across the hydrocarbon chain, and delivering societal benefits."
+          },
+          "mermaid": {
+            "name": "MERMAID MARITIME",
+            "description": "A leading international subsea and offshore drilling services company with headquarters in Thailand."
+          },
+          "sapuraKencana": {
+            "name": "SAPURA KENCANA",
+            "description": "The Group's spectrum of capabilities covers exploration through to production."
+          },
+          "sapuraEnergy": {
+            "name": "Sapura Energy",
+            "description": "It's a global integrated energy services provider operating across the entire upstream value chain, including renewables."
+          },
+          "chevron": {
+            "name": "Chevron Thailand",
+            "description": "Chevron is a global energy company operating in Thailand since 1948."
+          }
+        }
+      },
+      "viewAll": "VIEW ALL SERVICES"
+    },
+    "team": {
+      "title": "OUR TEAM",
+      "description": "Meet the experienced professionals behind SP INTER SERVICE & SUPPLY Workshop. Our leadership team brings decades of combined expertise in offshore operations, crew management, and specialized services.",
+      "viewAll": "VIEW ALL TEAM MEMBERS"
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "description": "Get in touch with our team for inquiries about our services, career opportunities, or any other questions.",
+      "form": {
+        "title": "Send Us a Message",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "subject": "Subject",
+        "message": "Message",
+        "submit": "SEND MESSAGE",
+        "required": "*"
+      }
+    }
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "footer": {
+    "companyDescription": "Your trusted partner for offshore success. We specialize in providing top-tier crew and manpower solutions for the demanding wind farm, oil & gas, and deep-sea shipping industries.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "location": "60 Paya Lebar Road, #11-11 Paya Lebar Square, Singapore 409051",
+    "email": "contact@spinterworkshop.com",
+    "phone": "+65 6123 4567",
+    "businessHours": {
+      "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+      "weekend": "Saturday - Sunday: Closed"
+    },
+    "copyright": "All rights reserved."
+  }
+}
