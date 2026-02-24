@@ -154,12 +154,55 @@ export default function ContactSection() {
                         />
                       </svg>
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="font-bold text-lg mb-1">{t('info.address')}</h4>
                       <p className="text-white/90">
-                        60 Paya Lebar Road, #11-11 Paya Lebar Square,
-                        Singapore 409051
+                        {t('info.location')}
                       </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{t('info.telFax')}</h4>
+                      <p className="text-white/90">{t('info.telFaxNumber')}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{t('info.taxId')}</h4>
+                      <p className="text-white/90">{t('info.taxIdNumber')}</p>
                     </div>
                   </div>
 
@@ -182,7 +225,7 @@ export default function ContactSection() {
                     <div>
                       <h4 className="font-bold text-lg mb-1">{t('info.email')}</h4>
                       <p className="text-white/90">
-                        contact@spinterworkshop.com
+                        {t('info.emailAddress')}
                       </p>
                     </div>
                   </div>
@@ -205,7 +248,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-bold text-lg mb-1">{t('info.phone')}</h4>
-                      <p className="text-white/90">+65 6123 4567</p>
+                      <p className="text-white/90">{t('info.phoneNumber')}</p>
                     </div>
                   </div>
 

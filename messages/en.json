@@ -134,8 +134,15 @@
     "info": {
       "title": "Contact Information",
       "address": "Address",
+      "location": "87/25 Moo 7, Tambol Bang Muang, Amphoe Muang Samut Prakan, Samut Prakan Thailand 10270",
       "email": "Email",
+      "emailAddress": "ps_2518@hotmail.com",
       "phone": "Phone",
+      "phoneNumber": "(0)81-779-275",
+      "telFax": "Tel/Fax",
+      "telFaxNumber": "(0)2-389-3357",
+      "taxId": "Tax ID",
+      "taxIdNumber": "0115558002394",
       "businessHours": "Business Hours",
       "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
       "weekend": "Saturday - Sunday: Closed"
@@ -211,12 +218,15 @@
     "viewAllButton": "VIEW ALL TEAM MEMBERS"
   },
   "footer": {
+    "companyName": "SP INTER SERVICE & SUPPLY",
     "companyDescription": "Your trusted partner for offshore success. We specialize in providing top-tier crew and manpower solutions for the demanding wind farm, oil & gas, and deep-sea shipping industries.",
     "quickLinks": "Quick Links",
     "contactUs": "Contact Us",
-    "location": "60 Paya Lebar Road, #11-11 Paya Lebar Square, Singapore 409051",
-    "email": "contact@spinterworkshop.com",
-    "phone": "+65 6123 4567",
+    "location": "87/25 Moo 7, Tambol Bang Muang, Amphoe Muang Samut Prakan, SamutPrakan Thailand 10270",
+    "email": "ps_2518@hotmail.com",
+    "phone": "(0)81-779-275",
+    "telFax": "(0)2-389-3357",
+    "taxId": "0115558002394",
     "businessHours": {
       "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
       "weekend": "Saturday - Sunday: Closed"
@@ -230,5 +240,29 @@
     "backHome": "Back to Home",
     "contact": "Contact Us",
     "help": "Or try searching for what you need from the menu above"
+  },
+  "statistics": {
+    "experience": "Years of Experience",
+    "projects": "Projects Completed",
+    "crew": "Crew Members Placed",
+    "countries": "Countries Served"
+  },
+  "homeServices": {
+    "projectManagement": {
+      "title": "Project Management",
+      "description": "We provide full support throughout your project, from accurate bid cost estimates to creating mobilization plans and ensuring the right crew is in place."
+    },
+    "crewManagement": {
+      "title": "Crew Management Solutions",
+      "description": "We handle payroll, ensuring accurate salary and tax calculations while saving costs by eliminating markups. We invest in crew development and address performance issues."
+    },
+    "catering": {
+      "title": "Off-shore Catering",
+      "description": "Our in-house catering integrates with your crew, offering customized menus that cater to dietary and cultural preferences with 15 years of experience."
+    }
+  },
+  "businessHours": {
+    "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+    "weekend": "Saturday - Sunday: Closed"
   }
 }

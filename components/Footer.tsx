@@ -24,10 +24,10 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="relative w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
+              {/* <div className="relative w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
                 <span className="text-[#213559] font-bold text-sm">SP</span>
-              </div>
-              <div className="font-bold text-xl">SP INTER SERVICE & SUPPLY</div>
+              </div> */}
+              <div className="font-bold text-xl">{t('companyName')}</div>
             </div>
             <p className="text-[#dbeafe] mb-4">
               {t('companyDescription')}
@@ -62,6 +62,18 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span className="text-[#eff6ff]">{t('location')}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#93c5fd] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                </svg>
+                <span className="text-[#eff6ff]">Tel/Fax: {t('telFax')}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#93c5fd] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span className="text-[#eff6ff]">Tax ID: {t('taxId')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#93c5fd] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
