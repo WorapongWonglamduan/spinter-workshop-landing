@@ -41,162 +41,131 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`flex justify-between items-center px-6 text-white sticky top-0 z-10 transition-all duration-300 ${
-          scrolled ? "bg-[#213559] shadow-lg py-3" : "bg-[#263f6b] py-5"
+        className={`sticky top-0 z-50 transition-all duration-500 ${
+          scrolled 
+            ? "bg-[#213559]/95 backdrop-blur-md shadow-2xl py-3" 
+            : "bg-gradient-to-r from-[#213559] via-[#263f6b] to-[#213559] py-4"
         }`}
       >
-        <div className="flex items-center">
-          <DelayedLink
-            href="/"
-            className="flex items-center gap-2 text-xl font-bold mr-8 cursor-pointer hover:scale-105 transition-transform"
-            delay={800}
-          >
-            <div className="relative w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
-              <span className="text-[#213559] font-bold text-sm">SP</span>
-            </div>
-            <div>
-              <span className="font-extrabold">SP INTER SERVICE & SUPPLY</span>
-              {/* <span className="font-medium">Workshop</span> */}
-            </div>
-          </DelayedLink>
+        <div className="container mx-auto px-6">
+          <div className="flex justify-between items-center">
+            {/* Logo - Left */}
+            <DelayedLink
+              href="/"
+              className="flex items-center gap-3 text-white cursor-pointer hover:scale-105 transition-all duration-300 group z-10"
+              delay={800}
+            >
+              <div className="relative w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
+                <span className="text-[#213559] font-bold text-base">SP</span>
+              </div>
+              <div className="hidden lg:block">
+                <span className="font-extrabold text-lg tracking-wide">SP INTER SERVICE & SUPPLY</span>
+              </div>
+              <div className="lg:hidden">
+                <span className="font-extrabold text-base">SP INTER</span>
+              </div>
+            </DelayedLink>
 
-          <div className="hidden md:flex gap-8">
-            <DelayedLink
-              href={isHomePage ? "#home" : "/"}
-              className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
-              delay={800}
-              callback={() => {
-                setMobileMenuOpen(false);
-              }}
-            >
-              {t('home')}
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink>
-            <DelayedLink
-              href={isHomePage ? "#team" : "/our-team"}
-              className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
-              delay={800}
-              callback={() => {
-                setMobileMenuOpen(false);
-              }}
-            >
-              {t('ourTeam')}
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink>
-            <DelayedLink
-              href={isHomePage ? "#services" : "/services"}
-              className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
-              delay={800}
-              callback={() => {
-                setMobileMenuOpen(false);
-              }}
-            >
-              {t('services')}
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink>
-            {/* Track Record - ปิดไว้ก่อน */}
-            {/* <DelayedLink
-              href="/track-record"
-              className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
-              delay={800}
-              callback={() => {
-                setMobileMenuOpen(false);
-              }}
-            >
-              Track Record
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink> */}
-            
-            {/* Open Vacancies - ปิดไว้ก่อน */}
-            {/* <DelayedLink
-              href="/vacancies"
-              className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
-              delay={800}
-              callback={() => {
-                setMobileMenuOpen(false);
-              }}
-            >
-              Open Vacancies
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink> */}
-            <DelayedLink
-              href={isHomePage ? "#contact" : "/contact"}
-              className="hover:text-blue-200 transition-all cursor-pointer relative group font-medium"
-              delay={800}
-              callback={() => {
-                setMobileMenuOpen(false);
-              }}
-            >
-              {t('contact')}
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-            </DelayedLink>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex items-center gap-2">
-            <button
-              onClick={() => switchLanguage('th')}
-              className={`px-3 py-1 rounded-md transition-all font-medium ${
-                locale === 'th'
-                  ? 'bg-white text-[#213559]'
-                  : 'text-white hover:bg-white/20'
-              }`}
-            >
-              TH
-            </button>
-            <button
-              onClick={() => switchLanguage('en')}
-              className={`px-3 py-1 rounded-md transition-all font-medium ${
-                locale === 'en'
-                  ? 'bg-white text-[#213559]'
-                  : 'text-white hover:bg-white/20'
-              }`}
-            >
-              EN
-            </button>
-          </div>
-          {/* <div className="hidden md:flex gap-4">
-            <DelayedLink
-              href="/login"
-              className="bg-white text-blue-600 hover:bg-blue-100 px-5 py-2 rounded-full transition-colors cursor-pointer font-medium"
-              delay={800}
-            >
-              Login
-            </DelayedLink>
-            <DelayedLink
-              href="/register"
-              className="border border-white hover:bg-white hover:text-blue-600 px-5 py-2 rounded-full transition-colors cursor-pointer font-medium"
-              delay={800}
-            >
-              Register
-            </DelayedLink>
-          </div> */}
-
-          <div className="md:hidden">
-            <button
-              className="text-white focus:outline-none p-2 hover:bg-blue-700 rounded-md transition-colors"
-              onClick={toggleMobileMenu}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            {/* Navigation Menu - Center */}
+            <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-1 bg-white/10 backdrop-blur-sm rounded-full px-2 py-2 border border-white/20">
+              <DelayedLink
+                href={isHomePage ? "#home" : "/"}
+                className="px-6 py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 cursor-pointer relative group font-medium"
+                delay={800}
+                callback={() => {
+                  setMobileMenuOpen(false);
+                }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={
-                    mobileMenuOpen
-                      ? "M6 18L18 6M6 6l12 12"
-                      : "M4 6h16M4 12h16M4 18h16"
-                  }
-                />
-              </svg>
-            </button>
+                {t('home')}
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-1 w-0 h-0.5 bg-white group-hover:w-3/4 transition-all duration-300"></span>
+              </DelayedLink>
+              <DelayedLink
+                href={isHomePage ? "#team" : "/our-team"}
+                className="px-6 py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 cursor-pointer relative group font-medium"
+                delay={800}
+                callback={() => {
+                  setMobileMenuOpen(false);
+                }}
+              >
+                {t('ourTeam')}
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-1 w-0 h-0.5 bg-white group-hover:w-3/4 transition-all duration-300"></span>
+              </DelayedLink>
+              <DelayedLink
+                href={isHomePage ? "#services" : "/services"}
+                className="px-6 py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 cursor-pointer relative group font-medium"
+                delay={800}
+                callback={() => {
+                  setMobileMenuOpen(false);
+                }}
+              >
+                {t('services')}
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-1 w-0 h-0.5 bg-white group-hover:w-3/4 transition-all duration-300"></span>
+              </DelayedLink>
+              <DelayedLink
+                href={isHomePage ? "#contact" : "/contact"}
+                className="px-6 py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 cursor-pointer relative group font-medium"
+                delay={800}
+                callback={() => {
+                  setMobileMenuOpen(false);
+                }}
+              >
+                {t('contact')}
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-1 w-0 h-0.5 bg-white group-hover:w-3/4 transition-all duration-300"></span>
+              </DelayedLink>
+            </div>
+
+            {/* Language Switcher - Right */}
+            <div className="flex items-center gap-3">
+              <div className="hidden md:flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full p-1 border border-white/20">
+                <button
+                  onClick={() => switchLanguage('th')}
+                  className={`px-4 py-1.5 rounded-full transition-all duration-300 font-medium ${
+                    locale === 'th'
+                      ? 'bg-white text-[#213559] shadow-lg'
+                      : 'text-white hover:bg-white/10'
+                  }`}
+                >
+                  TH
+                </button>
+                <button
+                  onClick={() => switchLanguage('en')}
+                  className={`px-4 py-1.5 rounded-full transition-all duration-300 font-medium ${
+                    locale === 'en'
+                      ? 'bg-white text-[#213559] shadow-lg'
+                      : 'text-white hover:bg-white/10'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
+                <button
+                  className="text-white focus:outline-none p-2 hover:bg-white/20 rounded-lg transition-all duration-300"
+                  onClick={toggleMobileMenu}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={
+                        mobileMenuOpen
+                          ? "M6 18L18 6M6 6l12 12"
+                          : "M4 6h16M4 12h16M4 18h16"
+                      }
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -204,9 +173,9 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div
-          className={`md:hidden bg-[#182a45] text-white py-4 px-6 shadow-lg sticky transition-all duration-300 ${
-            scrolled ? "tra top-16" : "top-20"
-          } z-2`}
+          className={`md:hidden bg-[#182a45]/98 backdrop-blur-md text-white py-4 px-6 shadow-2xl sticky transition-all duration-300 ${
+            scrolled ? "top-[60px]" : "top-[72px]"
+          } z-50 border-t border-white/10`}
         >
           <div className="flex flex-col gap-4">
             <DelayedLink

@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "framer-motion": "^12.34.3",
     "next": "15.5.0",
     "next-intl": "^4.8.3",
     "nextjs-toploader": "^3.8.16",
