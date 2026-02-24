@@ -55,9 +55,9 @@ export default function Navbar() {
               className="flex items-center gap-3 text-white cursor-pointer hover:scale-105 transition-all duration-300 group z-10"
               delay={800}
             >
-              <div className="relative w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
+              {/* <div className="relative w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow">
                 <span className="text-[#213559] font-bold text-base">SP</span>
-              </div>
+              </div> */}
               <div className="hidden lg:block">
                 <span className="font-extrabold text-lg tracking-wide">{t('companyName')}</span>
               </div>
@@ -119,7 +119,7 @@ export default function Navbar() {
               <div className="hidden md:flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full p-1 border border-white/20">
                 <button
                   onClick={() => switchLanguage('th')}
-                  className={`px-4 py-1.5 rounded-full transition-all duration-300 font-medium ${
+                  className={`px-4 py-1.5 rounded-full transition-all duration-300 font-medium cursor-pointer ${
                     locale === 'th'
                       ? 'bg-white text-[#213559] shadow-lg'
                       : 'text-white hover:bg-white/10'
@@ -129,7 +129,7 @@ export default function Navbar() {
                 </button>
                 <button
                   onClick={() => switchLanguage('en')}
-                  className={`px-4 py-1.5 rounded-full transition-all duration-300 font-medium ${
+                  className={`px-4 py-1.5 rounded-full transition-all duration-300 font-medium cursor-pointer ${
                     locale === 'en'
                       ? 'bg-white text-[#213559] shadow-lg'
                       : 'text-white hover:bg-white/10'

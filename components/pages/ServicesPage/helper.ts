@@ -15,6 +15,14 @@ export interface Industry {
   image: string;
 }
 
+// ข้อมูลลูกค้า
+export interface Client {
+  logo: string;
+  name: string;
+  full: string;
+  desc: string;
+}
+
 export default function helper() {
   const services: Service[] = [
     {
@@ -92,9 +100,66 @@ export default function helper() {
       image: '/industries/shipping.jpg'
     }
   ];
+
+  const facilityPhotos: string[] = [
+    "/images/photos/LINE_ALBUM_7169_260224_2.jpg",
+    "/images/photos/LINE_ALBUM_7169_260224_3.jpg",
+    "/images/photos/LINE_ALBUM_7169_260224_4.jpg",
+    "/images/photos/LINE_ALBUM_7169_260224_6.jpg",
+  ];
+
+  const facilities: string[] = ["BAY", "OVERVIEW", "STORAGE", "MEETING ROOM"];
+
+  const clients: Client[] = [
+    {
+      logo: "/images/icons/LT-hydrocarbon-engineering-limited-logo.png",
+      name: "L&T Hydrocarbon Engineering",
+      full: "Larsen & Toubro Limited",
+      desc: "A leading multinational conglomerate with businesses in engineering, construction, technology and financial services.",
+    },
+    {
+      logo: "/images/icons/saudi-aramco-png.png",
+      name: "Saudi Aramco",
+      full: "SAUDI ARAMCO",
+      desc: "Largest integrated energy and chemical companies, creating value across the hydrocarbon chain, and delivering societal benefits.",
+    },
+    {
+      logo: "/images/icons/mermaid-maritime-logo.png",
+      name: "Mermaid Maritime",
+      full: "MERMAID MARITIME",
+      desc: "A leading international subsea and offshore drilling services company with headquarters in Thailand.",
+    },
+    {
+      logo: "/images/icons/sapurakencana_total-logo-png.png",
+      name: "Sapura Kencana",
+      full: "SAPURA KENCANA",
+      desc: "The Group's spectrum of capabilities covers exploration through to production.",
+    },
+    {
+      logo: "/images/icons/logosapura-energy.png",
+      name: "Sapura Energy",
+      full: "Sapura Energy",
+      desc: "It's a global integrated energy services provider operating across the entire upstream value chain, including renewables.",
+    },
+    {
+      logo: "/images/icons/chevron-corporation-logo.png",
+      name: "Chevron",
+      full: "Chevron Thailand",
+      desc: "Chevron is a global energy company operating in Thailand since 1948.",
+    },
+    {
+      logo: "/images/icons/vantris-energy-logo-1x.png",
+      name: "Vantris Energy",
+      full: "Vantris Energy",
+      desc: "Energy services and solutions provider.",
+    },
+  ];
   
   return {
     services,
-    industries
+    industries,
+    facilityPhotos,
+    facilities,
+    clients
   };
 }

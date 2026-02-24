@@ -1,5 +1,5 @@
-import OurTeamPage from '@/components/pages/OurTeamPage';
+import FullOurTeamPage from '@/components/pages/OurTeamPage/FullOurTeamPage';
 
 export default function OurTeam() {
-  return <OurTeamPage />;
+  return <FullOurTeamPage />;
 }

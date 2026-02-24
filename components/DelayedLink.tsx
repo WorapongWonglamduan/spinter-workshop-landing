@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 import { ReactNode, useState } from "react";
 
 interface DelayedLinkProps {
@@ -23,7 +24,18 @@ export default function DelayedLink({
 }: DelayedLinkProps) {
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
   const [isLoading, setIsLoading] = useState(false);
+  
+  // Add locale prefix if not already present and not a hash link
+  const getLocalizedHref = (path: string) => {
+    if (path.startsWith('#') || path.startsWith(`/${locale}/`)) {
+      return path;
+    }
+    return `/${locale}${path.startsWith('/') ? path : `/${path}`}`;
+  };
+  
+  const localizedHref = getLocalizedHref(href);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -57,12 +69,12 @@ export default function DelayedLink({
     // ถ้าเป็นการนำทางไปหน้าอื่น
     if (showLoading) setIsLoading(true);
     setTimeout(() => {
-      router.push(href);
+      router.push(localizedHref);
     }, delay);
   };
 
   return (
-    <Link href={href} onClick={handleClick} className={className}>
+    <Link href={localizedHref} onClick={handleClick} className={className}>
       <div className="relative inline-flex items-center">
         {children}
         {isLoading && showLoading && (

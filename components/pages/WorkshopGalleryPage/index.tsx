@@ -3,19 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ScrollReveal, ParallaxScroll } from "./ScrollAnimations";
+import { ScrollReveal, ParallaxScroll } from "../../ScrollAnimations";
+import { useTranslations } from "next-intl";
+import helper from "./helper";
 
-interface WorkshopGalleryProps {
-  photos: string[];
-  title?: string;
-  description?: string;
-}
-
-export default function WorkshopGallery({
-  photos,
-  title = "WELDING WORKSHOP TRAINING",
-  description = "Our professional welding training programs in action",
-}: WorkshopGalleryProps) {
+export default function WorkshopGallery() {
+  const { galleryData } = helper();
+  const { photos } = galleryData;
+  const t = useTranslations("workshopGallery");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
@@ -23,10 +18,12 @@ export default function WorkshopGallery({
       <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4">
           <ScrollReveal direction="up" className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#213559] mb-4">{title}</h2>
+            <h2 className="text-5xl font-bold text-[#213559] mb-4">
+              {t("title")}
+            </h2>
             <div className="w-32 h-1 bg-[#263f6b] mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {description}
+              {t("description")}
             </p>
           </ScrollReveal>
 
@@ -48,11 +45,9 @@ export default function WorkshopGallery({
               <div className="absolute inset-0 bg-gradient-to-t from-[#213559]/80 via-transparent to-transparent flex items-end">
                 <div className="p-8 text-white">
                   <h3 className="text-3xl font-bold mb-2">
-                    Professional Welding Training
+                    {t("featuredTitle")}
                   </h3>
-                  <p className="text-lg">
-                    Hands-on experience with industry-standard equipment
-                  </p>
+                  <p className="text-lg">{t("featuredDescription")}</p>
                 </div>
               </div>
             </motion.div>
@@ -102,7 +97,7 @@ export default function WorkshopGallery({
           {/* View More Button */}
           <ScrollReveal direction="up" className="mt-12 text-center">
             <button className="btn-smooth bg-[#213559] hover:bg-[#263f6b] text-white font-bold py-4 px-10 rounded-md shadow-lg text-lg">
-              VIEW ALL PHOTOS ({photos.length})
+              {t("viewAllButton", { count: photos.length })}
             </button>
           </ScrollReveal>
         </div>

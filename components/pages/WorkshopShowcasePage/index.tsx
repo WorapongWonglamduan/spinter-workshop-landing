@@ -2,17 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ScrollReveal, ParallaxScroll } from "./ScrollAnimations";
+import { ScrollReveal, ParallaxScroll } from "../../ScrollAnimations";
+import { useTranslations } from 'next-intl';
+import helper from "./helper";
 
-export default function WorkshopShowcase() {
-  const showcasePhotos = [
-    "/images/photos/LINE_ALBUM_7169_260224_7.jpg",
-    "/images/photos/LINE_ALBUM_7169_260224_8.jpg",
-    "/images/photos/LINE_ALBUM_7169_260224_9.jpg",
-    "/images/photos/LINE_ALBUM_7169_260224_11.jpg",
-    "/images/photos/LINE_ALBUM_7169_260224_12.jpg",
-    "/images/photos/LINE_ALBUM_7169_260224_13.jpg",
-  ];
+export default function WorkshopShowcaseSection() {
+  const { showcaseData } = helper();
+  const t = useTranslations('workshopShowcase');
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
@@ -26,11 +22,11 @@ export default function WorkshopShowcase() {
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal direction="up" className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#213559] mb-4">
-            WORKSHOP IN ACTION
+            {t('title')}
           </h2>
           <div className="w-32 h-1 bg-[#263f6b] mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See our state-of-the-art welding workshop and training facilities
+            {t('description')}
           </p>
         </ScrollReveal>
 
@@ -44,22 +40,22 @@ export default function WorkshopShowcase() {
               className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl group"
             >
               <Image
-                src={showcasePhotos[0]}
+                src={showcaseData.photos[0]}
                 alt="Workshop Training"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#213559]/90 via-[#213559]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-3xl font-bold mb-2">Professional Training</h3>
-                  <p className="text-lg">Expert instructors guiding students through hands-on welding techniques</p>
+                  <h3 className="text-3xl font-bold mb-2">{t('featuredTitle')}</h3>
+                  <p className="text-lg">{t('featuredDescription')}</p>
                 </div>
               </div>
             </motion.div>
           </ParallaxScroll>
 
           {/* Small Images */}
-          {showcasePhotos.slice(1).map((photo, index) => (
+          {showcaseData.photos.slice(1).map((photo, index) => (
             <ParallaxScroll key={photo} offset={20 + index * 10}>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -110,12 +106,7 @@ export default function WorkshopShowcase() {
         {/* Stats Section */}
         <ScrollReveal direction="up" className="mt-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: "500+", label: "Trained Welders" },
-              { number: "15+", label: "Years Experience" },
-              { number: "100%", label: "Safety Record" },
-              { number: "50+", label: "Workshop Bays" },
-            ].map((stat, index) => (
+            {showcaseData.stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, scale: 0.8 }}

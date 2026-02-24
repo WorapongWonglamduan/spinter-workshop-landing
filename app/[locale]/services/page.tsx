@@ -1,5 +1,5 @@
-import ServicesPage from '@/components/pages/ServicesPage';
+import FullServicesPage from '@/components/pages/ServicesPage/FullServicesPage';
 
 export default function Services() {
-  return <ServicesPage />;
+  return <FullServicesPage />;
 }

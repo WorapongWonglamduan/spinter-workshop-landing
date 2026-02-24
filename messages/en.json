@@ -93,6 +93,123 @@
   "common": {
     "loading": "Loading..."
   },
+  "ourTeam": {
+    "title": "Our Team",
+    "description": "Meet the experienced professionals behind SP INTER SERVICE & SUPPLY Workshop. Our leadership team brings decades of combined expertise in offshore operations, crew management, and specialized services.",
+    "photoPlaceholder": "Team member photo would appear here",
+    "joinTeam": {
+      "title": "Join Our Team",
+      "description": "We're always looking for talented professionals to join our growing team. Check out our current openings or send us your CV for future opportunities.",
+      "button": "View Open Positions"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "We provide comprehensive crew supply and support services for offshore operations in the wind farm, oil & gas, and deep-sea shipping industries.",
+    "keyFeatures": "Key Features:",
+    "industries": {
+      "title": "Industries We Serve",
+      "imagePlaceholder": "Industry image would appear here"
+    },
+    "cta": {
+      "title": "Need Specialized Crew for Your Project?",
+      "description": "Contact us today to discuss your specific requirements and how our services can support your offshore operations.",
+      "button": "Get in Touch"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Get in touch with our team for inquiries about our services, career opportunities, or any other questions.",
+    "form": {
+      "title": "Send Us a Message",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "required": "*"
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone",
+      "businessHours": "Business Hours",
+      "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+      "weekend": "Saturday - Sunday: Closed"
+    },
+    "locations": {
+      "title": "Our Locations",
+      "mapPlaceholder": "Map would appear here"
+    }
+  },
+  "vacancies": {
+    "title": "Open Vacancies",
+    "description": "Join our team and be part of a dynamic organization that values expertise, safety, and professional growth.",
+    "noPositions": "No open positions at the moment. Please check back later or send us your CV for future opportunities.",
+    "applyButton": "Apply Now",
+    "location": "Location",
+    "type": "Type",
+    "experience": "Experience",
+    "requirements": "Requirements:",
+    "responsibilities": "Responsibilities:"
+  },
+  "trackRecord": {
+    "title": "Track Record",
+    "description": "Our proven track record of successful projects and satisfied clients across various industries.",
+    "projects": "Projects",
+    "clients": "Clients",
+    "years": "Years of Experience"
+  },
+  "companyProfile": {
+    "title": "COMPANY PROFILE",
+    "companyName": "SP INTER SERVICE & SUPPLY Co.,Ltd",
+    "description1": "SP INTER SERVICE & SUPPLY Co.,Ltd was established in 2015 in Thailand to provide high-quality welding to customers worldwide. After successfully exporting welders to customers, our founder began to start a welding workshop rental service in 2020.",
+    "description2": "Moreover, we believe customer satisfaction is more important than large profits. With customer satisfaction comes repeat business, it makes our company have more customers and works which assist our company growth.",
+    "learnMore": "LEARN MORE"
+  },
+  "companyGoal": {
+    "title": "COMPANY GOAL",
+    "quote": "SAFETY IS AN INTEGRAL PART OF OUR COMPANY",
+    "description": "To provide our customers with skilled welders and welding workshop rental service that exceed our customers expectations while maintaining the safety of personal and plant equipment."
+  },
+  "workshopShowcase": {
+    "title": "WORKSHOP IN ACTION",
+    "description": "See our state-of-the-art welding workshop and training facilities",
+    "featuredTitle": "Professional Training",
+    "featuredDescription": "Expert instructors guiding students through hands-on welding techniques"
+  },
+  "workshopGallery": {
+    "title": "WELDING WORKSHOP TRAINING",
+    "description": "Our professional welding training programs - Hands-on experience with skilled instructors and industry-standard equipment",
+    "featuredTitle": "Professional Welding Training",
+    "featuredDescription": "Hands-on experience with industry-standard equipment",
+    "viewAllButton": "VIEW ALL PHOTOS ({count})"
+  },
+  "companyServices": {
+    "title": "COMPANY SERVICES",
+    "description": "Comprehensive welding solutions tailored to your needs",
+    "weldingWorkshop": {
+      "title": "WELDING WORKSHOP",
+      "subtitle": "Provide Workshop for rental",
+      "items": {
+        "weldingMachine": "Welding Machine",
+        "consumables": "Consumables",
+        "more": "And more..."
+      }
+    },
+    "ourClients": {
+      "title": "OUR CLIENTS"
+    },
+    "viewAllButton": "VIEW ALL SERVICES"
+  },
+  "ourTeamSection": {
+    "title": "OUR TEAM",
+    "description": "Meet the experienced professionals behind SP INTER SERVICE & SUPPLY Workshop. Our leadership team brings decades of combined expertise in offshore operations, crew management, and specialized services.",
+    "viewAllButton": "VIEW ALL TEAM MEMBERS"
+  },
   "footer": {
     "companyDescription": "Your trusted partner for offshore success. We specialize in providing top-tier crew and manpower solutions for the demanding wind farm, oil & gas, and deep-sea shipping industries.",
     "quickLinks": "Quick Links",
@@ -105,5 +222,13 @@
       "weekend": "Saturday - Sunday: Closed"
     },
     "copyright": "All rights reserved."
+  },
+  "notFound": {
+    "label": "Page Not Found",
+    "title": "Page Not Found",
+    "description": "Sorry, we couldn't find the page you're looking for. The page may have been moved or deleted.",
+    "backHome": "Back to Home",
+    "contact": "Contact Us",
+    "help": "Or try searching for what you need from the menu above"
   }
 }
