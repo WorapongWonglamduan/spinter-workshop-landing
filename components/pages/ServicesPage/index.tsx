@@ -145,13 +145,16 @@ export default function ServicesSection() {
                       transition={{ duration: 0.3 }}
                       className="group client-logo bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
                     >
-                      <div className="h-32 mb-6 flex items-center justify-center">
+                      <div className="h-32 mb-6 flex items-center justify-center relative">
                         <Image
                           src={client.logo}
                           alt={client.name}
                           width={300}
                           height={128}
-                          className="max-h-32 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-500"
+                          unoptimized
+                          priority
+                          className="max-h-32 w-auto object-contain transition-all duration-500"
+                          style={{ maxWidth: '100%', height: 'auto' }}
                         />
                       </div>
                       <div className="client-logo-text text-center">
