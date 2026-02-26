@@ -154,21 +154,28 @@
   },
   "vacancies": {
     "title": "Open Vacancies",
-    "description": "Join our team and be part of a dynamic organization that values expertise, safety, and professional growth.",
+    "description": "Join our team of offshore professionals. We are constantly looking for talented individuals to support our global operations in wind farm, oil & gas, and deep-sea shipping industries.",
+    "currentOpportunities": "Current Opportunities",
     "noPositions": "No open positions at the moment. Please check back later or send us your CV for future opportunities.",
     "applyButton": "Apply Now",
     "location": "Location",
     "type": "Type",
     "experience": "Experience",
-    "requirements": "Requirements:",
-    "responsibilities": "Responsibilities:"
+    "requirements": "Requirements",
+    "responsibilities": "Responsibilities",
+    "noPositionTitle": "Don't See a Suitable Position?",
+    "noPositionDescription": "We're always looking for talented professionals to join our team. Send us your CV and we'll keep it on file for future opportunities.",
+    "submitCVButton": "Submit Your CV"
   },
   "trackRecord": {
-    "title": "Track Record",
-    "description": "Our proven track record of successful projects and satisfied clients across various industries.",
+    "title": "Our Track Record",
+    "description": "We have a proven history of delivering exceptional crew and support services for major projects worldwide. Below are some highlights from our extensive portfolio.",
     "projects": "Projects",
     "clients": "Clients",
-    "years": "Years of Experience"
+    "years": "Years of Experience",
+    "globalReach": "Our Global Reach",
+    "globalReachDescription": "We have successfully completed projects across multiple continents, providing specialized crew and support services in challenging environments.",
+    "mapPlaceholder": "World map visualization would appear here"
   },
   "companyProfile": {
     "title": "COMPANY PROFILE",

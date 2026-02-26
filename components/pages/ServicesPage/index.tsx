@@ -212,13 +212,17 @@ export default function ServicesSection() {
 
                         {/* Animated particles effect */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          {[...Array(3)].map((_, i) => (
+                          {[
+                            { x: 30, y: -20, left: 20, top: 30 },
+                            { x: -40, y: 35, left: 70, top: 60 },
+                            { x: 25, y: -30, left: 50, top: 80 }
+                          ].map((particle, i) => (
                             <motion.div
                               key={i}
                               className="absolute w-2 h-2 bg-white/30 rounded-full"
                               animate={{
-                                x: [0, Math.random() * 100 - 50],
-                                y: [0, Math.random() * 100 - 50],
+                                x: [0, particle.x],
+                                y: [0, particle.y],
                                 scale: [0, 1, 0],
                                 opacity: [0, 1, 0],
                               }}
@@ -229,8 +233,8 @@ export default function ServicesSection() {
                                 ease: "easeInOut",
                               }}
                               style={{
-                                left: `${Math.random() * 100}%`,
-                                top: `${Math.random() * 100}%`,
+                                left: `${particle.left}%`,
+                                top: `${particle.top}%`,
                               }}
                             />
                           ))}

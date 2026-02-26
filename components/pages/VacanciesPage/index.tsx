@@ -1,25 +1,25 @@
 'use client';
 
 import React from "react";
+import { useTranslations } from "next-intl";
 import helper from "./helper";
 
 export default function VacanciesPage() {
+  const t = useTranslations('vacancies');
   const { vacancies } = helper();
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Open Vacancies</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Join our team of offshore professionals. We are constantly looking for
-          talented individuals to support our global operations in wind farm,
-          oil & gas, and deep-sea shipping industries.
+    <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-3 text-[#213559]">{t('title')}</h1>
+        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+          {t('description')}
         </p>
       </div>
 
-      <div className="mb-8">
-        <div className="bg-blue-600 text-white p-4 rounded-t-lg">
-          <h2 className="text-xl font-bold">Current Opportunities</h2>
+      <div className="mb-6">
+        <div className="bg-gradient-to-r from-[#213559] to-[#263f6b] text-white p-3 rounded-t-lg">
+          <h2 className="text-lg font-bold">{t('currentOpportunities')}</h2>
         </div>
         <div className="bg-white shadow-lg rounded-b-lg overflow-hidden">
           {vacancies.map((vacancy) => (
@@ -27,17 +27,17 @@ export default function VacanciesPage() {
               key={vacancy.id}
               className="border-b border-gray-200 last:border-b-0"
             >
-              <div className="p-6">
-                <div className="flex flex-wrap justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-blue-800">
+              <div className="p-5">
+                <div className="flex flex-wrap justify-between items-start mb-3">
+                  <h3 className="text-lg font-bold text-[#213559]">
                     {vacancy.title}
                   </h3>
-                  <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
+                  <span className="inline-block px-3 py-1 bg-[#213559]/10 text-[#213559] text-sm font-semibold rounded-full">
                     {vacancy.category}
                   </span>
                 </div>
 
-                <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
+                <div className="flex flex-wrap gap-3 mb-3 text-sm text-gray-600">
                   <div className="flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -80,19 +80,19 @@ export default function VacanciesPage() {
                   </div>
                 </div>
 
-                <p className="text-gray-600 mb-4">{vacancy.description}</p>
+                <p className="text-gray-600 mb-3 text-sm">{vacancy.description}</p>
 
-                <div className="mb-4">
-                  <h4 className="font-semibold mb-2">Requirements:</h4>
-                  <ul className="list-disc pl-5 text-gray-600">
+                <div className="mb-3">
+                  <h4 className="font-semibold mb-2 text-sm">{t('requirements')}:</h4>
+                  <ul className="list-disc pl-5 text-gray-600 text-sm">
                     {vacancy.requirements.map((req, index) => (
                       <li key={index}>{req}</li>
                     ))}
                   </ul>
                 </div>
 
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
-                  Apply Now
+                <button className="bg-gradient-to-r from-[#213559] to-[#263f6b] hover:from-[#263f6b] hover:to-[#213559] text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                  {t('applyButton')}
                 </button>
               </div>
             </div>
@@ -100,13 +100,13 @@ export default function VacanciesPage() {
         </div>
       </div>
 
-      <div className="bg-gray-50 rounded-lg p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4">{`Don't See a Suitable Position?`}</h2>
-        <p className="mb-6 max-w-2xl mx-auto">
-          {`We're always looking for talented professionals to join our team. Send us your CV and we'll keep it on file for future opportunities.`}
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 text-center border border-gray-200">
+        <h2 className="text-xl font-bold mb-3 text-[#213559]">{t('noPositionTitle')}</h2>
+        <p className="mb-4 max-w-xl mx-auto text-sm text-gray-600">
+          {t('noPositionDescription')}
         </p>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-colors">
-          Submit Your CV
+        <button className="bg-gradient-to-r from-[#213559] to-[#263f6b] hover:from-[#263f6b] hover:to-[#213559] text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+          {t('submitCVButton')}
         </button>
       </div>
     </div>

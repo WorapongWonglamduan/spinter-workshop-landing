@@ -1,8 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function NotFound() {
+  const t = useTranslations('notFound');
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-gray-50 to-white py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Pattern */}
@@ -39,16 +42,16 @@ export default function NotFound() {
         <div className="space-y-4">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-12 h-1 bg-gradient-to-r from-[#213559] to-[#263f6b] rounded-full"></div>
-            <span className="text-sm font-semibold text-[#263f6b] uppercase tracking-wider">ไม่พบหน้า</span>
+            <span className="text-sm font-semibold text-[#263f6b] uppercase tracking-wider">{t('label')}</span>
             <div className="w-12 h-1 bg-gradient-to-r from-[#263f6b] to-[#213559] rounded-full"></div>
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold text-[#213559]">
-            ไม่พบหน้าที่คุณต้องการ
+            {t('title')}
           </h2>
           
           <p className="text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
-            ขออภัย เราไม่พบหน้าที่คุณกำลังมองหา หน้านี้อาจถูกย้ายหรือลบออกไปแล้ว
+            {t('description')}
           </p>
         </div>
 
@@ -61,14 +64,14 @@ export default function NotFound() {
             <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            <span>กลับไปหน้าหลัก</span>
+            <span>{t('backHome')}</span>
           </Link>
 
           <Link
             href="/contact"
             className="group inline-flex items-center gap-3 bg-white text-[#213559] border-2 border-[#213559] hover:bg-[#213559] hover:text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
           >
-            <span>ติดต่อเรา</span>
+            <span>{t('contact')}</span>
             <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
@@ -77,7 +80,7 @@ export default function NotFound() {
 
         {/* Additional Help */}
         <div className="pt-8 text-sm text-gray-500">
-          <p>หรือลองค้นหาสิ่งที่คุณต้องการจากเมนูด้านบน</p>
+          <p>{t('help')}</p>
         </div>
       </div>
     </div>
