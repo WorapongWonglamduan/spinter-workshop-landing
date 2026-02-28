@@ -158,7 +158,7 @@ export default function ContactSection() {
                   type="submit"
                   disabled={isLoading}
                   className={`btn-smooth w-full bg-[#213559] hover:bg-[#263f6b] text-white font-bold py-4 px-8 rounded-lg shadow-lg text-lg transition-all ${
-                    isLoading ? "opacity-70 cursor-not-allowed" : ""
+                    isLoading ? "opacity-70 cursor-not-allowed" : "cursor-pointer"
                   }`}
                 >
                   {isLoading ? (
