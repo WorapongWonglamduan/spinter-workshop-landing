@@ -1,24 +1,25 @@
 "use client";
 
+import { Controller } from "react-hook-form";
 import contactHelper from "./helper";
 import { ParallaxScroll, ScrollReveal } from "../../ScrollAnimations";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
   const { useContactForm } = contactHelper();
-  const { formData, handleChange, handleSubmit } = useContactForm();
-  const t = useTranslations('contact');
+  const { control, handleSubmit, errors, formFieldsConfig } = useContactForm();
+  const t = useTranslations("contact");
 
   return (
     <section className="py-20 bg-gray-50" id="contact">
       <div className="container mx-auto px-4">
         <ScrollReveal direction="up" className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#213559] mb-4">
-            {t('title')}
+            {t("title")}
           </h2>
           <div className="w-32 h-1 bg-[#263f6b] mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {t('description')}
+            {t("description")}
           </p>
         </ScrollReveal>
 
@@ -26,100 +27,84 @@ export default function ContactSection() {
           <ScrollReveal direction="left">
             <div className="card-hover bg-white rounded-2xl shadow-xl p-10">
               <h3 className="text-3xl font-bold mb-8 text-[#213559]">
-                {t('form.title')}
+                {t("form.title")}
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Render form fields from JSON config */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="firstName"
-                      className="block text-gray-700 font-semibold mb-2 text-lg"
-                    >
-                      {t('form.firstName')}{t('form.required')}
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#213559] focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-gray-700 font-semibold mb-2 text-lg"
-                    >
-                      {t('form.lastName')}{t('form.required')}
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#213559] focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
-                </div>
+                  {formFieldsConfig.map((field) => {
+                    const isFullWidth = field.gridCol === "full";
+                    const isTextarea = field.type === "textarea";
 
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-gray-700 font-semibold mb-2 text-lg"
-                  >
-                    {t('form.email')}{t('form.required')}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#213559] focus:border-transparent transition-all"
-                    required
-                  />
-                </div>
+                    return (
+                      <div
+                        key={field.name}
+                        className={isFullWidth ? "md:col-span-2" : ""}
+                      >
+                        <label
+                          htmlFor={field.name}
+                          className="block text-gray-700 font-semibold mb-2 text-lg"
+                        >
+                          {t(field.labelKey)}
+                          {field.required && t("form.required")}
+                        </label>
 
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-gray-700 font-semibold mb-2 text-lg"
-                  >
-                    {t('form.subject')}{t('form.required')}
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#213559] focus:border-transparent transition-all"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-gray-700 font-semibold mb-2 text-lg"
-                  >
-                    {t('form.message')}{t('form.required')}
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#213559] focus:border-transparent transition-all resize-none"
-                    required
-                  />
+                        <Controller
+                          name={field.name}
+                          control={control}
+                          rules={{
+                            required: field.required,
+                            pattern: field.validation?.pattern,
+                          }}
+                          render={({ field: { onChange, value } }) => (
+                            <>
+                              {isTextarea ? (
+                                <textarea
+                                  id={field.name}
+                                  rows={field.rows || 5}
+                                  value={value}
+                                  onChange={onChange}
+                                  placeholder={field.placeholder}
+                                  className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#213559] focus:border-transparent transition-all resize-none ${
+                                    errors[field.name]
+                                      ? "border-red-500"
+                                      : "border-gray-300"
+                                  }`}
+                                />
+                              ) : (
+                                <input
+                                  type={field.type}
+                                  id={field.name}
+                                  value={value}
+                                  onChange={onChange}
+                                  placeholder={field.placeholder}
+                                  className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#213559] focus:border-transparent transition-all ${
+                                    errors[field.name]
+                                      ? "border-red-500"
+                                      : "border-gray-300"
+                                  }`}
+                                />
+                              )}
+                              {errors[field.name] && (
+                                <p className="text-red-500 text-sm mt-1">
+                                  {field.validation?.message
+                                    ? t(field.validation.message)
+                                    : t("form.validation.required")}
+                                </p>
+                              )}
+                            </>
+                          )}
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <button
                   type="submit"
                   className="btn-smooth w-full bg-[#213559] hover:bg-[#263f6b] text-white font-bold py-4 px-8 rounded-lg shadow-lg text-lg"
                 >
-                  {t('form.submit')}
+                  {t("form.submit")}
                 </button>
               </form>
             </div>
@@ -128,9 +113,7 @@ export default function ContactSection() {
           <ParallaxScroll offset={50}>
             <ScrollReveal direction="right">
               <div className="card-hover bg-gradient-to-br from-[#213559] to-[#263f6b] rounded-2xl shadow-xl p-10 text-white h-full flex flex-col justify-center">
-                <h3 className="text-3xl font-bold mb-8">
-                  {t('info.title')}
-                </h3>
+                <h3 className="text-3xl font-bold mb-8">{t("info.title")}</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -155,10 +138,10 @@ export default function ContactSection() {
                       </svg>
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-lg mb-1">{t('info.address')}</h4>
-                      <p className="text-white/90">
-                        {t('info.location')}
-                      </p>
+                      <h4 className="font-bold text-lg mb-1">
+                        {t("info.address")}
+                      </h4>
+                      <p className="text-white/90">{t("info.location")}</p>
                     </div>
                   </div>
 
@@ -179,8 +162,10 @@ export default function ContactSection() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg mb-1">{t('info.telFax')}</h4>
-                      <p className="text-white/90">{t('info.telFaxNumber')}</p>
+                      <h4 className="font-bold text-lg mb-1">
+                        {t("info.telFax")}
+                      </h4>
+                      <p className="text-white/90">{t("info.telFaxNumber")}</p>
                     </div>
                   </div>
 
@@ -201,8 +186,10 @@ export default function ContactSection() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg mb-1">{t('info.taxId')}</h4>
-                      <p className="text-white/90">{t('info.taxIdNumber')}</p>
+                      <h4 className="font-bold text-lg mb-1">
+                        {t("info.taxId")}
+                      </h4>
+                      <p className="text-white/90">{t("info.taxIdNumber")}</p>
                     </div>
                   </div>
 
@@ -223,10 +210,10 @@ export default function ContactSection() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg mb-1">{t('info.email')}</h4>
-                      <p className="text-white/90">
-                        {t('info.emailAddress')}
-                      </p>
+                      <h4 className="font-bold text-lg mb-1">
+                        {t("info.email")}
+                      </h4>
+                      <p className="text-white/90">{t("info.emailAddress")}</p>
                     </div>
                   </div>
 
@@ -247,8 +234,10 @@ export default function ContactSection() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg mb-1">{t('info.phone')}</h4>
-                      <p className="text-white/90">{t('info.phoneNumber')}</p>
+                      <h4 className="font-bold text-lg mb-1">
+                        {t("info.phone")}
+                      </h4>
+                      <p className="text-white/90">{t("info.phoneNumber")}</p>
                     </div>
                   </div>
 
@@ -270,14 +259,10 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-bold text-lg mb-1">
-                        {t('info.businessHours')}
+                        {t("info.businessHours")}
                       </h4>
-                      <p className="text-white/90">
-                        {t('info.weekdays')}
-                      </p>
-                      <p className="text-white/90">
-                        {t('info.weekend')}
-                      </p>
+                      <p className="text-white/90">{t("info.weekdays")}</p>
+                      <p className="text-white/90">{t("info.weekend")}</p>
                     </div>
                   </div>
                 </div>

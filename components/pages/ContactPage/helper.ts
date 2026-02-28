@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useForm } from "react-hook-form";
 
 // ประเภทข้อมูลสำหรับฟอร์มติดต่อ
 export interface ContactFormData {
@@ -10,50 +10,123 @@ export interface ContactFormData {
   message: string;
 }
 
-// hook สำหรับจัดการฟอร์มติดต่อ
+// ประเภทข้อมูลสำหรับ field configuration
+export interface FormFieldConfig {
+  name: keyof ContactFormData;
+  type: "text" | "email" | "tel" | "textarea";
+  labelKey: string;
+  placeholder?: string;
+  required: boolean;
+  validation?: {
+    pattern?: RegExp;
+    message?: string;
+  };
+  rows?: number;
+  gridCol?: "full" | "half";
+}
+
+// JSON Configuration สำหรับ form fields
+export const formFieldsConfig: FormFieldConfig[] = [
+  {
+    name: "firstName",
+    type: "text",
+    labelKey: "form.firstName",
+    required: true,
+    validation: {
+      message: "form.validation.firstNameRequired",
+    },
+    gridCol: "half",
+  },
+  {
+    name: "lastName",
+    type: "text",
+    labelKey: "form.lastName",
+    required: true,
+    validation: {
+      message: "form.validation.lastNameRequired",
+    },
+    gridCol: "half",
+  },
+  {
+    name: "email",
+    type: "email",
+    labelKey: "form.email",
+    required: true,
+    validation: {
+      pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      message: "form.validation.emailInvalid",
+    },
+    gridCol: "full",
+  },
+  {
+    name: "phone",
+    type: "tel",
+    labelKey: "form.phone",
+    required: true,
+    validation: {
+      message: "form.validation.phoneRequired",
+    },
+    gridCol: "full",
+  },
+  {
+    name: "subject",
+    type: "text",
+    labelKey: "form.subject",
+    required: true,
+    validation: {
+      message: "form.validation.subjectRequired",
+    },
+    gridCol: "full",
+  },
+  {
+    name: "message",
+    type: "textarea",
+    labelKey: "form.message",
+    required: true,
+    validation: {
+      message: "form.validation.messageRequired",
+    },
+    rows: 5,
+    gridCol: "full",
+  },
+];
+
+// hook สำหรับจัดการฟอร์มติดต่อด้วย React Hook Form
 const useContactForm = () => {
-  const [formData, setFormData] = useState<ContactFormData>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    },
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [id]: value
-    }));
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (data: ContactFormData) => {
     // ในสถานการณ์จริงจะส่งข้อมูลไปยัง API
-    console.log('Form submitted:', formData);
-    alert('ขอบคุณสำหรับข้อความของคุณ เราจะติดต่อกลับโดยเร็วที่สุด');
+    console.log("Form submitted:", data);
+    alert("ขอบคุณสำหรับข้อความของคุณ เราจะติดต่อกลับโดยเร็วที่สุด");
     // รีเซ็ตฟอร์ม
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    reset();
   };
 
   return {
-    formData,
-    handleChange,
-    handleSubmit
+    control,
+    handleSubmit: handleSubmit(onSubmit),
+    errors,
+    formFieldsConfig,
   };
 };
 
 export default function helper() {
   return {
-    useContactForm
+    useContactForm,
   };
 }

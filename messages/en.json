@@ -129,7 +129,16 @@
       "subject": "Subject",
       "message": "Message",
       "submit": "Send Message",
-      "required": "*"
+      "required": "*",
+      "validation": {
+        "required": "This field is required",
+        "firstNameRequired": "Please enter your first name",
+        "lastNameRequired": "Please enter your last name",
+        "emailInvalid": "Please enter a valid email address",
+        "phoneRequired": "Please enter your phone number",
+        "subjectRequired": "Please enter a subject",
+        "messageRequired": "Please enter your message"
+      }
     },
     "info": {
       "title": "Contact Information",

@@ -83,6 +83,7 @@
         "firstName": "ชื่อ",
         "lastName": "นามสกุล",
         "email": "อีเมล",
+        "phone": "เบอร์โทรศัพท์",
         "subject": "หัวข้อ",
         "message": "ข้อความ",
         "submit": "ส่งข้อความ",
@@ -129,7 +130,16 @@
       "subject": "หัวข้อ",
       "message": "ข้อความ",
       "submit": "ส่งข้อความ",
-      "required": "*"
+      "required": "*",
+      "validation": {
+        "required": "กรุณากรอกข้อมูลในช่องนี้",
+        "firstNameRequired": "กรุณากรอกชื่อ",
+        "lastNameRequired": "กรุณากรอกนามสกุล",
+        "emailInvalid": "กรุณากรอกอีเมลให้ถูกต้อง",
+        "phoneRequired": "กรุณากรอกเบอร์โทรศัพท์",
+        "subjectRequired": "กรุณากรอกหัวข้อ",
+        "messageRequired": "กรุณากรอกข้อความ"
+      }
     },
     "info": {
       "title": "ข้อมูลติดต่อ",
