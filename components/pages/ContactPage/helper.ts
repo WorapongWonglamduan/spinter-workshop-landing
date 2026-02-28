@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
-// ประเภทข้อมูลสำหรับฟอร์มติดต่อ
 export interface ContactFormData {
   firstName: string;
   lastName: string;
@@ -10,7 +11,6 @@ export interface ContactFormData {
   message: string;
 }
 
-// ประเภทข้อมูลสำหรับ field configuration
 export interface FormFieldConfig {
   name: keyof ContactFormData;
   type: "text" | "email" | "tel" | "textarea";
@@ -25,7 +25,6 @@ export interface FormFieldConfig {
   gridCol?: "full" | "half";
 }
 
-// JSON Configuration สำหรับ form fields
 export const formFieldsConfig: FormFieldConfig[] = [
   {
     name: "firstName",
@@ -91,8 +90,10 @@ export const formFieldsConfig: FormFieldConfig[] = [
   },
 ];
 
-// hook สำหรับจัดการฟอร์มติดต่อด้วย React Hook Form
 const useContactForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
   const {
     control,
     handleSubmit,
@@ -109,12 +110,35 @@ const useContactForm = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    // ในสถานการณ์จริงจะส่งข้อมูลไปยัง API
-    console.log("Form submitted:", data);
-    alert("ขอบคุณสำหรับข้อความของคุณ เราจะติดต่อกลับโดยเร็วที่สุด");
-    // รีเซ็ตฟอร์ม
-    reset();
+  const onSubmit = async (data: ContactFormData) => {
+    setIsLoading(true);
+    setSubmitStatus("idle");
+
+    try {
+      const templateParams = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message,
+      };
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setSubmitStatus("success");
+      reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return {
@@ -122,6 +146,9 @@ const useContactForm = () => {
     handleSubmit: handleSubmit(onSubmit),
     errors,
     formFieldsConfig,
+    isLoading,
+    submitStatus,
+    setSubmitStatus,
   };
 };
 
