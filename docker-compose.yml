@@ -1,0 +1,34 @@
+services:
+  # Production container built from the multi-stage Dockerfile (Next.js
+  # standalone output). For local dev use `npm run dev` on the host instead;
+  # `docker compose up -d` runs this, which is what the deploy workflow does.
+  app:
+    # Must match the lowercased image the GitHub Actions workflow pushes to
+    # GHCR (deploy.yml lowercases github.repository).
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-changeme}/spinter-workshop-landing:${IMAGE_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # NEXT_PUBLIC_* must be a build arg — see the Dockerfile note. Only
+        # takes effect on `docker compose build`; the real production image
+        # comes from GitHub Actions, which this service only ever pulls.
+        NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${NEXT_PUBLIC_EMAILJS_SERVICE_ID:-}
+        NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${NEXT_PUBLIC_EMAILJS_TEMPLATE_ID:-}
+        NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${NEXT_PUBLIC_EMAILJS_PUBLIC_KEY:-}
+    container_name: spinter-workshop-landing
+    restart: unless-stopped
+    # No host port published on purpose — only the shared reverse-proxy stack
+    # (managed independently on this server, not in this repo) should be
+    # internet-facing. Reachable from it via shared-proxy.
+    expose:
+      - "3000"
+    environment:
+      NODE_ENV: production
+      TZ: Asia/Bangkok
+    networks:
+      - shared-proxy
+
+networks:
+  shared-proxy:
+    external: true
